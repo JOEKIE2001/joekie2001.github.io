@@ -1,0 +1,12 @@
+# My singing covers. Each song is one block of lines starting with "- title".
+# Put the mp3 file in the files/music/ folder, then add a block like this:
+#
+# - title: "Song name"
+#   original: "Original artist"
+#   date: 2026-01-15
+#   file: my-song.mp3
+#   note: "Optional one-line note about this cover"
+#
+# Songs are shown in the order listed here (top = first).
+
+[]

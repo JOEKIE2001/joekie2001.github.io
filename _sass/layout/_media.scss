@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Music player list and photo gallery (custom for this site)
+   ========================================================================== */
+
+.music-item {
+  margin: 0 0 1.75em;
+  padding-bottom: 1.25em;
+  border-bottom: 1px solid var(--global-border-color);
+
+  &__title { margin: 0 0 0.2em; }
+  &__meta  { margin: 0 0 0.6em; font-size: 0.85em; opacity: 0.75; }
+  &__note  { margin: 0.6em 0 0; font-size: 0.9em; }
+
+  audio { width: 100%; max-width: 520px; }
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+
+  &__item {
+    margin: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+    a:hover img { transform: scale(1.02); }
+
+    figcaption {
+      font-family: inherit;
+      margin-top: 0.35em;
+      font-size: 0.8em;
+      opacity: 0.8;
+    }
+  }
+}

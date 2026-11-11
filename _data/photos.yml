@@ -1,0 +1,10 @@
+# My photographs. Put image files (.jpg / .png) in the images/photos/ folder,
+# then add a block like this for each one:
+#
+# - file: sunset-abu-dhabi.jpg
+#   caption: "Sunset, Abu Dhabi"
+#   date: 2025-12
+#
+# Photos are shown in the order listed here (top = first).
+
+[]
