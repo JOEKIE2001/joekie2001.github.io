@@ -9,16 +9,52 @@ redirect_from:
 
 {% include base_path %}
 
-<h2>Research topics</h2><hr />
+<h2>Research interests</h2><hr />
+<p>
+  Architected materials &amp; mechanical metamaterials · interpenetrating phase composites (IPCs) ·
+  triply periodic minimal surface (TPMS) topologies · high strain-rate impact mechanics ·
+  dynamic mechanical analysis (modal / harmonic / transmissibility) · additive manufacturing &amp; hybrid fabrication ·
+  finite element analysis · machine learning for materials design
+</p>
+
+<h2>Research projects</h2><hr />
+
+<h3>Vibration suppression with mechanical metastructures</h3>
+<p><em>Ph.D. research, NYU / NYUAD · October 2025 – present</em></p>
 <ul>
-  <li><strong>Architected materials and structures</strong> (single-phase &amp; multiphase) — hybrid manufacturing workflows, mechanical properties, and applications.</li>
-  <li><strong>Machine learning for design</strong> — symbolic ML, polynomial fitting, and neural networks for structure–property mapping and reverse design.</li>
-  <li><strong>Experimental modal analysis</strong> with Dewesoft — identifying modal frequencies and damping ratios.</li>
-  <li><strong>Wave manipulation design</strong> — vibration isolation, sound absorption, and waveguiding.</li>
+  <li>Quantitative review of 70+ architected metastructure designs in five mechanism-based categories, with an Ashby-type map linking load-bearing efficiency and vibration attenuation.</li>
+  <li>Designed, 3D-printed and tested chiral-enhanced TPMS metastructures; shaker-based transmissibility tests correlated with ANSYS modal and harmonic simulations.</li>
+</ul>
+
+<h3>Static and dynamic performance of architected materials and structures</h3>
+<p><em>Ph.D. research, NYU / NYUAD · April 2025 – present</em></p>
+<ul>
+  <li>Experimental modal analysis (mode shapes, natural frequencies, damping ratios) of single- and dual-phase IPC beams with four TPMS architectures and one stochastic architecture.</li>
+  <li>First experimental evidence of vibration-response mechanisms in dual-polymer-phase IPC beams, with system damping ratios up to 16–18% at stiffness comparable to single-phase beams.</li>
+</ul>
+
+<h3>Hybrid manufacturing and high-rate impact behavior of architected IPCs</h3>
+<p><em>Ph.D. research, NYU / NYUAD · July 2024 – March 2025 · in collaboration with the EC Joint Research Centre (ELSA-HopLab), Ispra, Italy</em></p>
+<ul>
+  <li>Aluminum–polymer IPCs (BCC, Gyroid, IWP, Spinodal) made by selective laser sintering plus vacuum-assisted polymer infiltration.</li>
+  <li>Quasi-static to dynamic compression (0.001–400 s<sup>−1</sup>) on one of the world's largest Split Hopkinson Pressure Bar systems; compressive strengths of 250–290 MPa at 400 s<sup>−1</sup>.</li>
+  <li>Nonlinear Ashby-type surrogate models (R² &gt; 0.95) predicting stiffness and specific strength from strain rate, topology and phase composition.</li>
+</ul>
+
+<h3>Multi-material additive manufacturing: separation of metal powders</h3>
+<p><em>Master's research, NUS / NUSRI · September 2022 – June 2024</em></p>
+<ul>
+  <li>Electromagnet-assisted system for recovering mixed metal powders (316L–Cu, Co–Cu, Ni–Cu) from multi-material laser powder bed fusion.</li>
+</ul>
+
+<h3>Cu–Cu<sub>x</sub>O porous anode for lithium-ion batteries</h3>
+<p><em>Undergraduate research, Sichuan University · July 2020 – May 2021</em></p>
+<ul>
+  <li>3D porous copper anode made by dealloying a Cu<sub>35</sub>Mn alloy; characterized with TEM, XRD and SEM.</li>
 </ul>
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <p class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">Google Scholar</a>.</p>
 {% endif %}
 
 {% for category in site.publication_category %}
