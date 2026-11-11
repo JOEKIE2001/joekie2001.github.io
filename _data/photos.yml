@@ -1,23 +1,28 @@
 # My photographs. Put image files (.jpg / .png) in the images/photos/ folder,
 # then add a block like this for each one:
 #
-# - file: sunset-abu-dhabi.jpg
-#   caption: "Sunset, Abu Dhabi"
-#   date: 2025-12
+# - file: my-photo.jpg
+#   title: "Photo name"            (first line, larger)
+#   location: "Place, City"        (second line, smaller)
 #
 # Photos are shown in the order listed here (top = first).
 
 - file: mangroves.jpg
-  caption: "Mangroves at low tide"
+  title: "Low tide"
+  location: "Jubail Mangrove, AD"
 
 - file: light-and-water.jpg
-  caption: "Light and water"
+  title: "Light shower"
+  location: "teamLab, AD"
 
 - file: teamlab-phenomena.jpg
-  caption: "teamLab Phenomena, Abu Dhabi"
-
-- file: beach-at-night.jpg
-  caption: "Beach at night"
+  title: "Ribbon"
+  location: "teamLab, AD"
 
 - file: laser-beams.jpg
-  caption: "Beams of light"
+  title: "Sprint"
+  location: "teamLab, AD"
+
+- file: beach-at-night.jpg
+  title: "Nocturnal Holiday"
+  location: "Al Hudayriyat Beach, AD"
