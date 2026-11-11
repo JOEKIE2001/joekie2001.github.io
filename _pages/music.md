@@ -7,19 +7,66 @@ author_profile: true
 
 {% include base_path %}
 
-I sing for fun (amateur level!) and sometimes write my own pieces. Here are a few covers — press play.
+I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover to play, tap again to pause.
 
-{% if site.data.music.size > 0 %}
-<div class="music-list">
-{% for song in site.data.music %}
-  <div class="music-item">
-    <h3 class="music-item__title">{{ song.title }}</h3>
-    <p class="music-item__meta">{% if song.original %}Originally by {{ song.original }}{% endif %}{% if song.original and song.date %} · {% endif %}{% if song.date %}{{ song.date | date: "%B %Y" }}{% endif %}</p>
-    <audio controls preload="none" src="{{ base_path }}/files/music/{{ song.file }}">Your browser does not support audio playback.</audio>
-    {% if song.note %}<p class="music-item__note">{{ song.note }}</p>{% endif %}
-  </div>
-{% endfor %}
+<h2>Covers</h2>
+{% if site.data.music.covers.size > 0 %}
+<div class="music-grid">
+{% for song in site.data.music.covers %}{% include music-tile.html song=song %}{% endfor %}
 </div>
 {% else %}
-<p><em>Songs coming soon 🎤</em></p>
+<p><em>Coming soon 🎤</em></p>
 {% endif %}
+
+<h2>Originals</h2>
+{% if site.data.music.originals.size > 0 %}
+<div class="music-grid">
+{% for song in site.data.music.originals %}{% include music-tile.html song=song %}{% endfor %}
+</div>
+{% else %}
+<p><em>Coming soon 🎼</em></p>
+{% endif %}
+
+<script>
+  (function () {
+    function fmt(s) {
+      if (!isFinite(s)) return '';
+      var m = Math.floor(s / 60), r = Math.floor(s % 60);
+      return m + ':' + (r < 10 ? '0' : '') + r;
+    }
+    var tiles = Array.prototype.slice.call(document.querySelectorAll('.music-tile'));
+    tiles.forEach(function (tile) {
+      var audio = tile.querySelector('audio');
+      var btn = tile.querySelector('.music-tile__cover');
+      var bar = tile.querySelector('.music-tile__bar');
+      var fill = tile.querySelector('.music-tile__fill');
+      var cur = tile.querySelector('.music-tile__current');
+      var dur = tile.querySelector('.music-tile__duration');
+
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          tiles.forEach(function (t) { if (t !== tile) t.querySelector('audio').pause(); });
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+      audio.addEventListener('play', function () { tile.classList.add('is-playing'); btn.setAttribute('aria-label', 'Pause'); });
+      audio.addEventListener('pause', function () { tile.classList.remove('is-playing'); btn.setAttribute('aria-label', 'Play'); });
+      audio.addEventListener('loadedmetadata', function () { dur.textContent = fmt(audio.duration); });
+      audio.addEventListener('timeupdate', function () {
+        fill.style.width = (audio.duration ? audio.currentTime / audio.duration * 100 : 0) + '%';
+        cur.textContent = fmt(audio.currentTime);
+      });
+      audio.addEventListener('ended', function () { audio.currentTime = 0; });
+      // Click or drag on the progress line to jump within the song
+      function seek(e) {
+        if (!audio.duration) return;
+        var r = bar.getBoundingClientRect();
+        var x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
+        audio.currentTime = x / r.width * audio.duration;
+      }
+      bar.addEventListener('click', seek);
+    });
+  })();
+</script>

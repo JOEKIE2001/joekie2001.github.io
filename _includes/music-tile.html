@@ -1,0 +1,15 @@
+<figure class="music-tile">
+  <button type="button" class="music-tile__cover" aria-label="Play {{ include.song.title }}">
+    <img src="{{ base_path }}/images/music/{{ include.song.cover | default: 'default-cover.jpg' }}" alt="{{ include.song.title }} cover" loading="lazy">
+    <span class="music-tile__icon" aria-hidden="true"></span>
+  </button>
+  <div class="music-tile__progress">
+    <div class="music-tile__bar"><div class="music-tile__fill"></div></div>
+    <div class="music-tile__time"><span class="music-tile__current">0:00</span><span class="music-tile__duration"></span></div>
+  </div>
+  <figcaption>
+    <span class="music-tile__title">{{ include.song.title }}</span>
+    {% if include.song.subtitle %}<span class="music-tile__subtitle">{{ include.song.subtitle }}</span>{% endif %}
+  </figcaption>
+  <audio preload="metadata" src="{{ base_path }}/files/music/{{ include.song.file }}"></audio>
+</figure>
