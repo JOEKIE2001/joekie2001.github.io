@@ -23,7 +23,7 @@ repository               : "JOEKIE2001/joekie2001.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Qinze Song (Monty)"
   pronouns         : # example: "she/her"  
   bio              : "PhD student · Architected materials & structures · Additive manufacturing · Amateur singer & photographer"
@@ -64,7 +64,7 @@ author:
   goodreads        : # Username
   google_plus      : # Username
   keybase          : # Username
-  instagram        : "montgomeryjoekie" # Username
+  instagram        : # Username
   lastfm           : # Username
   linkedin         : # Username
   mastodon         : # URL
