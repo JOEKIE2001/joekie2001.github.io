@@ -66,3 +66,23 @@
 - file: twin-towers-creek.jpg
   title: "Sail to Twin"
   location: "Twin Towers, Dubai"
+
+- file: old-town-window.jpg
+  title: "Expecting"
+  location: "Old Town, Dubai"
+
+- file: old-town-spices.jpg
+  title: "Spice!"
+  location: "Old Town, Dubai"
+
+- file: louvre-statue.jpg
+  title: "I Think..."
+  location: "Louvre, AD"
+
+- file: louvre-dome.jpg
+  title: "Delulu Cubic"
+  location: "Louvre, AD"
+
+- file: expo-city.jpg
+  title: "EXpo!!"
+  location: "Expo City, Dubai"
