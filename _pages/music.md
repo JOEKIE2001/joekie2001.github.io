@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover to play, tap again to pause.
+I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover to play, tap again to pause. Drag the line under it to skip around.
 
 <h2>Covers</h2>
 {% if site.data.music.covers.size > 0 %}
@@ -59,14 +59,22 @@ I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover
         cur.textContent = fmt(audio.currentTime);
       });
       audio.addEventListener('ended', function () { audio.currentTime = 0; });
-      /* Click on the progress line to jump within the song */
+      /* Tap or drag the progress line to jump within the song */
       function seek(e) {
         if (!audio.duration) return;
         var r = bar.getBoundingClientRect();
         var x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
         audio.currentTime = x / r.width * audio.duration;
       }
-      bar.addEventListener('click', seek);
+      var dragging = false;
+      bar.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        if (bar.setPointerCapture) bar.setPointerCapture(e.pointerId);
+        seek(e);
+      });
+      bar.addEventListener('pointermove', function (e) { if (dragging) seek(e); });
+      bar.addEventListener('pointerup', function () { dragging = false; });
+      bar.addEventListener('pointercancel', function () { dragging = false; });
     });
   })();
 </script>

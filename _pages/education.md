@@ -3,6 +3,7 @@ layout: archive
 title: "Education"
 permalink: /education/
 author_profile: true
+classes: nyu-purple
 redirect_from:
   - /cv/
   - /resume
