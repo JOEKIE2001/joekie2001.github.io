@@ -1,17 +1,126 @@
 /* ==========================================================================
-   Music player list and photo gallery (custom for this site)
+   Music: square cover tiles that play/pause on tap, with a progress line
    ========================================================================== */
 
-.music-item {
-  margin: 0 0 1.75em;
-  padding-bottom: 1.25em;
-  border-bottom: 1px solid var(--global-border-color);
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em 1em;
+  margin: 1em 0 2em;
 
-  &__title { margin: 0 0 0.2em; }
-  &__meta  { margin: 0 0 0.6em; font-size: 0.85em; opacity: 0.75; }
-  &__note  { margin: 0.6em 0 0; font-size: 0.9em; }
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 500px) { grid-template-columns: 1fr; }
+}
 
-  audio { width: 100%; max-width: 520px; }
+.music-tile {
+  display: block;  /* theme styles <figure> as flex; keep the stack vertical */
+  margin: 0;
+
+  &__cover {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #222;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    &:hover img { transform: scale(1.02); filter: brightness(0.85); }
+  }
+
+  /* round play/pause button in the middle of the cover */
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+
+    &::before {             /* play triangle */
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -12px 0 0 -7px;
+      border-style: solid;
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent #fff;
+    }
+  }
+  &__cover:hover &__icon { opacity: 1; }
+
+  &.is-playing &__icon {
+    opacity: 0.6;
+    &::before, &::after {   /* pause bars */
+      content: "";
+      top: 50%;
+      margin: -12px 0 0;
+      width: 7px;
+      height: 24px;
+      border: 0;
+      background: #fff;
+    }
+    &::before { left: 22px; }
+    &::after { position: absolute; left: 35px; }
+  }
+  &.is-playing &__cover:hover &__icon { opacity: 1; }
+
+  &__progress { margin-top: 0.5em; }
+
+  &__bar {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--global-border-color);
+    cursor: pointer;
+    position: relative;
+
+    &::after {               /* bigger invisible click target */
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: -6px; bottom: -6px;
+    }
+  }
+
+  &__fill {
+    width: 0;
+    height: 100%;
+    border-radius: 2px;
+    background: var(--global-text-color);
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7em;
+    opacity: 0.6;
+    margin-top: 0.2em;
+  }
+
+  figcaption {
+    font-family: inherit;
+    margin: 0.3em 0 0;
+    padding: 0;
+    line-height: 1.3;
+    font-size: 1rem;
+  }
+
+  &__title { display: block; font-size: 1em; }
+  &__subtitle { display: block; font-size: 0.8em; opacity: 0.7; }
 }
 
 .photo-grid {

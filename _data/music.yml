@@ -1,12 +1,17 @@
-# My singing covers. Each song is one block of lines starting with "- title".
-# Put the mp3 file in the files/music/ folder, then add a block like this:
+# My music, in two sections. Put audio files (.mp3 or .m4a) in files/music/
+# and square cover images (.jpg / .png) in images/music/, then add a block:
 #
-# - title: "Song name"
-#   original: "Original artist"
-#   date: 2026-01-15
-#   file: my-song.mp3
-#   note: "Optional one-line note about this cover"
+# - title: "Song name"              (first line, larger)
+#   subtitle: "Original by Artist"  (second line, smaller)
+#   file: my-song.m4a
+#   cover: my-song.jpg
 #
 # Songs are shown in the order listed here (top = first).
 
-[]
+covers:
+  - title: "kiss me"
+    subtitle: "Original by Ariana Grande"
+    file: kiss-me.m4a
+    cover: kiss-me.jpg
+
+originals: []
