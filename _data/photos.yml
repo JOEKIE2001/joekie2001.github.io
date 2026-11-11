@@ -27,12 +27,20 @@
   title: "Nocturnal Holiday"
   location: "Al Hudayriyat Beach, AD"
 
+- file: scarlet-ibis.jpg
+  title: "Documentation"
+  location: "SeaWorld, AD"
+
 - file: flamingos.jpg
   title: "Hi"
   location: "SeaWorld, AD"
 
 - file: parrot.jpg
   title: "Hi2"
+  location: "SeaWorld, AD"
+
+- file: turaco.jpg
+  title: "Hi3"
   location: "SeaWorld, AD"
 
 - file: penguin.jpg
@@ -46,3 +54,15 @@
 - file: dolphin.jpg
   title: "Splash"
   location: "SeaWorld, AD"
+
+- file: burj-khalifa-reflection.jpg
+  title: "Parallel World"
+  location: "Burj Khalifa Tower, Dubai"
+
+- file: dubai-mall-stairs.jpg
+  title: "Gathering Point"
+  location: "Dubai Mall, Dubai"
+
+- file: twin-towers-creek.jpg
+  title: "Sail to Twin"
+  location: "Twin Towers, Dubai"
