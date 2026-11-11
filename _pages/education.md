@@ -10,9 +10,6 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-
 **Ph.D. in Mechanical Engineering** — New York University, *September 2024 – present*
 * Dual affiliation: NYU Tandon School of Engineering (Brooklyn) & NYU Abu Dhabi (UAE)
 * Advisor: Prof. Nikolaos Karathanasopoulos

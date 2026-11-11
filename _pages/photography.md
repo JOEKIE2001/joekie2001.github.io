@@ -17,9 +17,12 @@ A glimpse of my life and travels. Click a photo to see it full size.
 {% for photo in site.data.photos %}
   <figure class="photo-grid__item">
     <a href="{{ base_path }}/images/photos/{{ photo.file }}" target="_blank" rel="noopener">
-      <img src="{{ base_path }}/images/photos/{{ photo.file }}" alt="{{ photo.caption | default: 'Photo' }}">
+      <img src="{{ base_path }}/images/photos/{{ photo.file }}" alt="{{ photo.title | default: photo.caption | default: 'Photo' }}">
     </a>
-    {% if photo.caption %}<figcaption>{{ photo.caption }}{% if photo.date %} · {{ photo.date }}{% endif %}</figcaption>{% endif %}
+    {% if photo.title or photo.location or photo.caption %}<figcaption>
+      {% if photo.title or photo.caption %}<span class="photo-grid__title">{{ photo.title | default: photo.caption }}</span>{% endif %}
+      {% if photo.location %}<span class="photo-grid__location">{{ photo.location }}</span>{% endif %}
+    </figcaption>{% endif %}
   </figure>
 {% endfor %}
 </div>
