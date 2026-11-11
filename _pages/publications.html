@@ -1,0 +1,34 @@
+---
+layout: archive
+title: "Research"
+permalink: /research/
+author_profile: true
+redirect_from:
+  - /publications/
+---
+
+{% include base_path %}
+
+<h2>Research topics</h2><hr />
+<ul>
+  <li><strong>Architected materials and structures</strong> (single-phase &amp; multiphase) — hybrid manufacturing workflows, mechanical properties, and applications.</li>
+  <li><strong>Machine learning for design</strong> — symbolic ML, polynomial fitting, and neural networks for structure–property mapping and reverse design.</li>
+  <li><strong>Experimental modal analysis</strong> with Dewesoft — identifying modal frequencies and damping ratios.</li>
+  <li><strong>Wave manipulation design</strong> — vibration isolation, sound absorption, and waveguiding.</li>
+</ul>
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+{% for category in site.publication_category %}
+  {% assign title_shown = false %}
+  {% for post in site.publications reversed %}
+    {% if post.category != category[0] %}{% continue %}{% endif %}
+    {% unless title_shown %}
+      <h2>{{ category[1].title }}</h2><hr />
+      {% assign title_shown = true %}
+    {% endunless %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endfor %}

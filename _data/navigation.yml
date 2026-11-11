@@ -1,0 +1,15 @@
+# The menu at the top of the site. Order here = order on the page.
+# To add a menu item, copy two lines (title + url) and change them.
+
+main:
+  - title: "Education"
+    url: /education/
+
+  - title: "Research"
+    url: /research/
+
+  - title: "Music"
+    url: /music/
+
+  - title: "Photography"
+    url: /photography/
