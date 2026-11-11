@@ -59,7 +59,7 @@ I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover
         cur.textContent = fmt(audio.currentTime);
       });
       audio.addEventListener('ended', function () { audio.currentTime = 0; });
-      // Click or drag on the progress line to jump within the song
+      /* Click on the progress line to jump within the song */
       function seek(e) {
         if (!audio.duration) return;
         var r = bar.getBoundingClientRect();
