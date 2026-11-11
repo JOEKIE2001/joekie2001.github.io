@@ -26,3 +26,23 @@
 - file: beach-at-night.jpg
   title: "Nocturnal Holiday"
   location: "Al Hudayriyat Beach, AD"
+
+- file: flamingos.jpg
+  title: "Hi"
+  location: "SeaWorld, AD"
+
+- file: parrot.jpg
+  title: "Hi2"
+  location: "SeaWorld, AD"
+
+- file: penguin.jpg
+  title: "Polar Model"
+  location: "SeaWorld, AD"
+
+- file: aquarium-porthole.jpg
+  title: "POV"
+  location: "SeaWorld, AD"
+
+- file: dolphin.jpg
+  title: "Splash"
+  location: "SeaWorld, AD"
