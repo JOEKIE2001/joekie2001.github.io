@@ -7,4 +7,17 @@
 #
 # Photos are shown in the order listed here (top = first).
 
-[]
+- file: mangroves.jpg
+  caption: "Mangroves at low tide"
+
+- file: light-and-water.jpg
+  caption: "Light and water"
+
+- file: teamlab-phenomena.jpg
+  caption: "teamLab Phenomena, Abu Dhabi"
+
+- file: beach-at-night.jpg
+  caption: "Beach at night"
+
+- file: laser-beams.jpg
+  caption: "Beams of light"
