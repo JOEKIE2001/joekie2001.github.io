@@ -8,8 +8,8 @@ main:
   - title: "Research"
     url: /research/
 
-  - title: "Music"
-    url: /music/
-
   - title: "Photography"
     url: /photography/
+
+  - title: "Music"
+    url: /music/

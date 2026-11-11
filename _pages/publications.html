@@ -3,6 +3,7 @@ layout: archive
 title: "Research"
 permalink: /research/
 author_profile: true
+classes: nyu-purple
 redirect_from:
   - /publications/
 ---
@@ -16,6 +17,29 @@ redirect_from:
   dynamic mechanical analysis (modal / harmonic / transmissibility) · additive manufacturing &amp; hybrid fabrication ·
   finite element analysis · machine learning for materials design
 </p>
+
+<figure class="research-figure">
+  <a href="{{ base_path }}/images/research/research-overview-1.webp" target="_blank" rel="noopener"><img src="{{ base_path }}/images/research/research-overview-1.webp" alt="Research overview: topology designs and methodology"></a>
+</figure>
+<figure class="research-figure">
+  <a href="{{ base_path }}/images/research/research-overview-2.webp" target="_blank" rel="noopener"><img src="{{ base_path }}/images/research/research-overview-2.webp" alt="Research overview: results and applications"></a>
+</figure>
+
+{% if site.author.googlescholar %}
+  <p class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">Google Scholar</a>.</p>
+{% endif %}
+
+{% for category in site.publication_category %}
+  {% assign title_shown = false %}
+  {% for post in site.publications reversed %}
+    {% if post.category != category[0] %}{% continue %}{% endif %}
+    {% unless title_shown %}
+      <h2>{{ category[1].title }}</h2><hr />
+      {% assign title_shown = true %}
+    {% endunless %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endfor %}
 
 <h2>Research projects</h2><hr />
 
@@ -52,19 +76,3 @@ redirect_from:
 <ul>
   <li>3D porous copper anode made by dealloying a Cu<sub>35</sub>Mn alloy; characterized with TEM, XRD and SEM.</li>
 </ul>
-
-{% if site.author.googlescholar %}
-  <p class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">Google Scholar</a>.</p>
-{% endif %}
-
-{% for category in site.publication_category %}
-  {% assign title_shown = false %}
-  {% for post in site.publications reversed %}
-    {% if post.category != category[0] %}{% continue %}{% endif %}
-    {% unless title_shown %}
-      <h2>{{ category[1].title }}</h2><hr />
-      {% assign title_shown = true %}
-    {% endunless %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endfor %}

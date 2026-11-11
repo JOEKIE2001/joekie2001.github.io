@@ -7,7 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-I'm Qinze Song (Monty), a PhD student at **New York University** (NYC / Abu Dhabi). My research focuses on
+<img class="home-photo" src="{{ site.baseurl }}/images/home-photo.jpg" alt="Monty at sunset">
+
+I'm Qinze Song (Monty), a PhD candidate at **New York University** (NYC / Abu Dhabi). My research focuses on
 **architected materials & structures**, **additive manufacturing**, and **static and dynamic mechanical performance analysis**.
 
 Outside the lab, I compose a few music pieces and sing a bit (amateur level). I also love traveling and photography.
@@ -19,4 +21,3 @@ Use the menu at the top to look around. Good hunting!
 Get in touch
 ------
 - Email: [qs2224@nyu.edu](mailto:qs2224@nyu.edu)
-- GitHub: [@JOEKIE2001](https://github.com/JOEKIE2001)

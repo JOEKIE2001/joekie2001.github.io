@@ -83,24 +83,38 @@
   &__progress { margin-top: 0.5em; }
 
   &__bar {
-    height: 4px;
-    border-radius: 2px;
+    position: relative;
+    height: 8px;
+    border-radius: 4px;
     background: var(--global-border-color);
     cursor: pointer;
-    position: relative;
+    touch-action: none;      /* let fingers drag the bar instead of scrolling */
 
-    &::after {               /* bigger invisible click target */
+    &::after {               /* larger invisible touch target */
       content: "";
       position: absolute;
-      left: 0; right: 0; top: -6px; bottom: -6px;
+      left: 0; right: 0; top: -10px; bottom: -10px;
     }
   }
 
   &__fill {
+    position: relative;
     width: 0;
     height: 100%;
-    border-radius: 2px;
+    border-radius: 4px;
     background: var(--global-text-color);
+
+    &::after {               /* round knob at the current position */
+      content: "";
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      border-radius: 50%;
+      background: var(--global-text-color);
+    }
   }
 
   &__time {
@@ -169,4 +183,50 @@
     font-size: 0.8em;
     opacity: 0.7;
   }
+}
+
+/* ==========================================================================
+   Home photo, research figures, NYU purple headings
+   ========================================================================== */
+
+.home-photo {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 1.5em;
+  border-radius: 8px;
+}
+
+.research-figure {
+  display: block;
+  margin: 1.5em 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+}
+
+$nyu-purple: #57068c;
+
+.nyu-purple {
+  .page__title,
+  h1,
+  h2,
+  h3,
+  > p > strong:first-child {   /* degree names on the Education page */
+    color: $nyu-purple;
+  }
+
+  h2.archive__item-title,      /* paper titles stay as normal links */
+  h2.archive__item-title a {
+    color: inherit;
+  }
+}
+
+html[data-theme="dark"] .nyu-purple {
+  .page__title, h1, h2, h3, > p > strong:first-child { color: #b98ee0; }
+  h2.archive__item-title { color: inherit; }
 }
