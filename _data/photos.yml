@@ -39,10 +39,6 @@
   title: "Hi2"
   location: "SeaWorld, AD"
 
-- file: turaco.jpg
-  title: "Hi3"
-  location: "SeaWorld, AD"
-
 - file: penguin.jpg
   title: "Polar Model"
   location: "SeaWorld, AD"
@@ -82,10 +78,6 @@
 - file: louvre-dome.jpg
   title: "Delulu Cubic"
   location: "Louvre, AD"
-
-- file: expo-city.jpg
-  title: "EXpo!!"
-  location: "Expo City, Dubai"
 
 - file: ferris-wheel.jpg
   title: "Lost Paradise"
@@ -146,3 +138,23 @@
 - file: santa-monica-um-sir.jpg
   title: "Um, sir?"
   location: "Santa Monica Pier, CA"
+
+- file: beverly-hills-bloom.jpg
+  title: "BLOOM"
+  location: "Beverly Hills, CA"
+
+- file: griffith-oh-la.jpg
+  title: "Oh, LA"
+  location: "Griffith Observatory, CA"
+
+- file: griffith-spilled-paint-2.jpg
+  title: "Spilled Paint 2"
+  location: "Griffith Observatory, CA"
+
+- file: griffith-dusk-trail.jpg
+  title: "Dusk Trail"
+  location: "Griffith Observatory, CA"
+
+- file: sunset-cliffs-golden-hour.jpg
+  title: "Golden Hour"
+  location: "Sunset Cliff, CA"
