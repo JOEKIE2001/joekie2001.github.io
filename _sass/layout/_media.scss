@@ -216,7 +216,7 @@ $nyu-purple: #57068c;
   h1,
   h2,
   h3,
-  > p > strong:first-child {   /* degree names on the Education page */
+  .edu-entry__body > p > strong:first-child {   /* degree names on the Education page */
     color: $nyu-purple;
   }
 
@@ -227,6 +227,34 @@ $nyu-purple: #57068c;
 }
 
 html[data-theme="dark"] .nyu-purple {
-  .page__title, h1, h2, h3, > p > strong:first-child { color: #b98ee0; }
+  .page__title, h1, h2, h3, .edu-entry__body > p > strong:first-child { color: #b98ee0; }
   h2.archive__item-title { color: inherit; }
+}
+
+/* Education entries with school emblem on the left */
+.edu-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2em;
+  margin: 0 0 1.2em;
+
+  &__logo {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    margin-top: 0.2em;
+  }
+
+  &__body {
+    flex: 1;
+    min-width: 0;
+    > p { margin: 0 0 0.3em; }
+    > ul { margin-top: 0.3em; }
+  }
+
+  @media (max-width: 500px) {
+    gap: 0.8em;
+    &__logo { flex-basis: 48px; width: 48px; height: 48px; }
+  }
 }
