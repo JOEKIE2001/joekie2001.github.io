@@ -280,3 +280,14 @@ html[data-theme="dark"] .nyu-purple {
 }
 
 html[data-theme="dark"] .skills-list__icon { color: #b98ee0; }
+
+/* Roman numerals before section headings on Education and Research (I., II., ...) */
+.nyu-purple {
+  counter-reset: section;
+
+  > h1:not(.page__title)::before,
+  > h2::before {
+    counter-increment: section;
+    content: counter(section, upper-roman) ". ";
+  }
+}
