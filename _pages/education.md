@@ -35,7 +35,7 @@ redirect_from:
 </div>
 
 <div class="edu-entry">
-<span class="edu-entry__logo edu-entry__logo--empty"></span>
+<img class="edu-entry__logo" src="{{ base_path }}/images/education/nus.png" alt="NUS Suzhou Research Institute emblem">
 <div class="edu-entry__body" markdown="1">
 
 **Bridging Research Programme** — NUS Suzhou Research Institute, Suzhou, China, *September 2022 – May 2023*
@@ -66,11 +66,13 @@ Honors, awards and fellowships
 
 Technical skills
 ======
-* **Experimental:** Split Hopkinson Pressure Bar (SHPB), modal shaker (Dewesoft PM-20), triaxial accelerometers (PCB-352C03), Dewesoft DAQ, SEM, EDS, micro-CT (Bruker SkyScan 1272), optical microscopy, servo-hydraulic UTM, high-speed camera
-* **Computational & modelling:** ANSYS Mechanical (APDL & Workbench), MATLAB, Python, Bash/Zsh; familiar with Abaqus, COMSOL, C++
-* **Design & fabrication:** Shapr3D, AutoCAD, Materialise Magics, ANSYS SpaceClaim, Top6Meta; familiar with SolidWorks
-* **Data analysis & visualisation:** MATLAB, Python, ImageJ, Blender
-* **Languages:** English (fluent), Mandarin Chinese (native)
+<ul class="skills-list">
+<li><i class="fa-solid fa-microscope fa-fw skills-list__icon" aria-hidden="true"></i><strong>Experimental:</strong> Split Hopkinson Pressure Bar (SHPB), modal shaker (Dewesoft PM-20), triaxial accelerometers (PCB-352C03), Dewesoft DAQ, SEM, EDS, micro-CT (Bruker SkyScan 1272), optical microscopy, servo-hydraulic UTM, high-speed camera</li>
+<li><i class="fa-solid fa-laptop-code fa-fw skills-list__icon" aria-hidden="true"></i><strong>Computational &amp; modelling:</strong> ANSYS Mechanical (APDL &amp; Workbench), MATLAB, Python, Bash/Zsh; familiar with Abaqus, COMSOL, C++</li>
+<li><i class="fa-solid fa-pen-ruler fa-fw skills-list__icon" aria-hidden="true"></i><strong>Design &amp; fabrication:</strong> Shapr3D, AutoCAD, Materialise Magics, ANSYS SpaceClaim, Top6Meta; familiar with SolidWorks</li>
+<li><i class="fa-solid fa-chart-line fa-fw skills-list__icon" aria-hidden="true"></i><strong>Data analysis &amp; visualisation:</strong> MATLAB, Python, ImageJ, Blender</li>
+<li><i class="fa-solid fa-language fa-fw skills-list__icon" aria-hidden="true"></i><strong>Languages:</strong> English (fluent), Mandarin Chinese (native)</li>
+</ul>
 
 Service and leadership
 ======

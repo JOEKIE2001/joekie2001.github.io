@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-I sing for fun (amateur level!) and sometimes compose my own pieces. Tap a cover to play, tap again to pause. Drag the line under it to skip around.
+I sing for fun and sometimes compose my own pieces. Tap a cover to play, tap again to pause. Drag the line under it to skip around.
 
 <h2>Covers</h2>
 {% if site.data.music.covers.size > 0 %}
