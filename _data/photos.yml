@@ -126,3 +126,23 @@
 - file: zayed-museum-leaf.jpg
   title: "Leaf"
   location: "Zayed National Museum, AD"
+
+- file: santa-monica-apex.jpg
+  title: "Apex"
+  location: "Santa Monica Pier, CA"
+
+- file: santa-monica-descending.jpg
+  title: "Descending"
+  location: "Santa Monica Pier, CA"
+
+- file: santa-monica-end-of-trail.jpg
+  title: "End of the Trail"
+  location: "Santa Monica Pier, CA"
+
+- file: santa-monica-no-parking.jpg
+  title: "No Parking I Guess"
+  location: "Santa Monica Pier, CA"
+
+- file: santa-monica-um-sir.jpg
+  title: "Um, sir?"
+  location: "Santa Monica Pier, CA"
