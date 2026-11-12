@@ -86,3 +86,23 @@
 - file: expo-city.jpg
   title: "EXpo!!"
   location: "Expo City, Dubai"
+
+- file: ferris-wheel.jpg
+  title: "Lost Paradise"
+  location: "Sheikh Zayed Festival, AD"
+
+- file: galleria-christmas.jpg
+  title: "Holiday Spirit"
+  location: "The Galleria Mall, AD"
+
+- file: reem-island-skyline.jpg
+  title: "Spilled Paint"
+  location: "Reem Island, AD"
+
+- file: zayed-museum-skylight.jpg
+  title: "Arrakis"
+  location: "Zayed National Museum, AD"
+
+- file: zayed-museum-silhouette.jpg
+  title: "Ice to Fire, against"
+  location: "Zayed National Museum, AD"
