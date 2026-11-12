@@ -258,3 +258,25 @@ html[data-theme="dark"] .nyu-purple {
     &__logo { flex-basis: 48px; width: 48px; height: 48px; }
   }
 }
+
+/* Technical skills list with purple icons instead of bullets */
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 0.3em;
+    color: #57068c;
+  }
+}
+
+html[data-theme="dark"] .skills-list__icon { color: #b98ee0; }
