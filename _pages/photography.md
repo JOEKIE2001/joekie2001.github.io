@@ -3,6 +3,7 @@ layout: archive
 title: "Photography"
 permalink: /photography/
 author_profile: true
+fluid_bg: false   # keep a plain white background so the photos stand out
 redirect_from:
   - /pics/
   - /photos/
