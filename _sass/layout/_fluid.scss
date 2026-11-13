@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Moving purple-and-beige background (every page except those with fluid_bg: false)
+   The paint itself is drawn by _includes/fluid-bg.html.
+   ========================================================================== */
+
+html:has(> body.fluid-page) { background: #efe6d6; }
+
+body.fluid-page {
+  /* fixed light palette on these pages, whatever the light/dark toggle says */
+  --global-bg-color: transparent;
+  --global-text-color: #2b2233;
+  --global-border-color: rgba(87, 6, 140, 0.25);
+  --global-link-color: #57068c;
+  --global-link-color-hover: #7b2fb5;
+  --global-link-color-visited: #57068c;
+  --global-masthead-link-color: #2b2233;
+  --global-masthead-link-color-hover: #57068c;
+  --global-footer-bg-color: transparent;
+  background: transparent;
+  color: #2b2233;
+
+  #fluid-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    /* shown as-is if WebGL is unavailable */
+    background: radial-gradient(ellipse at 30% 30%, #8a5bb8 0%, #efe6d6 60%), #efe6d6;
+  }
+
+  .masthead {
+    background: rgba(246, 240, 228, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(87, 6, 140, 0.25);
+  }
+  .masthead a, .greedy-nav a { color: #2b2233; }
+  .greedy-nav .hidden-links { background: #f6f0e4; }
+
+  /* sidebar: solid cream panel */
+  .sidebar {
+    background: #f6f0e4;
+    border: 1px solid rgba(87, 6, 140, 0.35);
+    border-radius: 10px;
+    padding: 1.2em 1em;
+    color: #2b2233;
+  }
+  .sidebar .author__name, .sidebar .author__bio, .sidebar a, .sidebar li { color: #2b2233; }
+
+  /* page content: light see-through card */
+  .archive, .page {
+    background: rgba(250, 246, 238, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(87, 6, 140, 0.22);
+    border-radius: 10px;
+    padding: 1.2em 1.6em 1.6em;
+    color: #2b2233;
+  }
+  .archive .page__title, .page .page__title, .archive h2 { color: #57068c; }
+
+  .page__footer {
+    background: rgba(246, 240, 228, 0.88);
+    color: #2b2233;
+  }
+
+  @media (max-width: 500px) {
+    .archive, .page { padding: 1em 1.1em 1.3em; }
+  }
+}
+
+/* Footer: sit at the end of the page instead of being pinned over the content
+   (the theme's script adds bottom margin for the pinned version; cancel it) */
+.page__footer {
+  position: relative;
+  bottom: auto;
+}
+body { margin-bottom: 0 !important; }

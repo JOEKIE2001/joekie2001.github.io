@@ -11,8 +11,9 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body{% unless page.fluid_bg == false %} class="fluid-page"{% endunless %}>
 
+    {% unless page.fluid_bg == false %}{% include fluid-bg.html %}{% endunless %}
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 

@@ -1,83 +1,8 @@
----
-layout: archive
-title: "Background preview: purple & beige (v2)"
-permalink: /background-demo-purple-2/
-author_profile: true
-sitemap: false
----
-
-<!-- Preview page for the purple-and-beige fluid background. Not linked from the menu. -->
-
+<!-- Moving purple-and-beige "paint" background (WebGL). Turn off on a page with  fluid_bg: false  in its front matter. -->
 <canvas id="fluid-bg" aria-hidden="true"></canvas>
-
-<style>
-  :root, html[data-theme="dark"] {
-    --global-bg-color: transparent;
-    --global-text-color: #2b2233;
-    --global-border-color: rgba(87, 6, 140, 0.25);
-    --global-link-color: #57068c;
-    --global-link-color-hover: #7b2fb5;
-    --global-link-color-visited: #57068c;
-    --global-masthead-link-color: #2b2233;
-    --global-masthead-link-color-hover: #57068c;
-  }
-  html { background: #d9c4a3; }
-  body { background: transparent; }
-  #fluid-bg {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    display: block;
-    background: radial-gradient(ellipse at 30% 30%, #8a5bb8 0%, #d9c4a3 55%), #d9c4a3;
-  }
-  .masthead {
-    background: rgba(246, 240, 228, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(87, 6, 140, 0.25);
-  }
-  .masthead a, .greedy-nav a { color: #2b2233; }
-  .sidebar {
-    background: #f6f0e4;
-    border: 1px solid rgba(87, 6, 140, 0.35);
-    border-radius: 10px;
-    padding: 1.2em 1em;
-    color: #2b2233;
-  }
-  .sidebar .author__name, .sidebar .author__bio, .sidebar a, .sidebar li { color: #2b2233; }
-  .archive {
-    background: rgba(250, 246, 238, 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(87, 6, 140, 0.22);
-    border-radius: 10px;
-    padding: 1.2em 1.6em 1.6em;
-    color: #2b2233;
-  }
-  .archive .page__title, .archive h2 { color: #57068c; }
-  .page__footer { background: rgba(246, 240, 228, 0.88); }
-</style>
-
-<p>This page is a <strong>test</strong> of the moving purple-and-beige background. It isn't linked from the menu.</p>
-
-<h2>What you're seeing</h2>
-<ul>
-  <li><strong>Behind the page:</strong> mostly warm beige "paint" with NYU purple swirling through it.</li>
-  <li><strong>Sidebar:</strong> a solid cream panel with a thin purple edge, so it has its own look.</li>
-  <li><strong>This text area:</strong> a light, slightly see-through card, so the words stay easy to read over the moving paint.</li>
-  <li><strong>Headings and links</strong> stay in NYU purple, which reads well on beige.</li>
-</ul>
-
-<h2>Sample text</h2>
-<p>Architected materials &amp; mechanical metamaterials · interpenetrating phase composites · TPMS topologies · high strain-rate impact mechanics · dynamic mechanical analysis · additive manufacturing.</p>
-<p><a href="{{ base_path }}/">A sample link back to the home page</a></p>
-
 <script>
 (function () {
   var canvas = document.getElementById('fluid-bg');
-  document.body.insertBefore(canvas, document.body.firstChild); /* sit behind the whole page, not inside the text card */
   var gl = canvas.getContext('webgl', { antialias: false, premultipliedAlpha: false });
   if (!gl) return; /* no WebGL: the CSS gradient fallback stays */
 
@@ -98,14 +23,14 @@ sitemap: false
     '  float f = fbm(uv + 3.5*r);',
     '  vec3 deep   = vec3(0.22, 0.03, 0.34);',
     '  vec3 nyu    = vec3(0.34, 0.024, 0.55);',
-    '  vec3 lilac  = vec3(0.62, 0.50, 0.70);',
-    '  vec3 beige  = vec3(0.85, 0.77, 0.64);',
-    '  vec3 sand   = vec3(0.90, 0.84, 0.73);',
+    '  vec3 lilac  = vec3(0.64, 0.50, 0.76);',
+    '  vec3 beige  = vec3(0.93, 0.89, 0.82);',
+    '  vec3 cream  = vec3(0.96, 0.94, 0.89);',
     '  float k = smoothstep(0.22, 0.62, f);',
     '  vec3 c = mix(deep, nyu, smoothstep(0.0, 0.18, k));',
     '  c = mix(c, lilac, smoothstep(0.16, 0.36, k));',
     '  c = mix(c, beige, smoothstep(0.30, 0.55, k));',
-    '  c = mix(c, sand, smoothstep(0.75, 1.0, k) * 0.6);',
+    '  c = mix(c, cream, smoothstep(0.75, 1.0, k) * 0.6);',
     '  c = mix(c * 0.9, c, smoothstep(0.0, 1.0, length(r)));',
     '  gl_FragColor = vec4(c, 1.0);',
     '}'
