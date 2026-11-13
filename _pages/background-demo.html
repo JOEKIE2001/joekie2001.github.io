@@ -1,0 +1,150 @@
+---
+layout: archive
+title: "Background preview"
+permalink: /background-demo/
+author_profile: true
+sitemap: false
+---
+
+<!-- Preview page for the black-and-gold fluid background. Not linked from the menu. -->
+
+<canvas id="fluid-bg" aria-hidden="true"></canvas>
+
+<style>
+  :root, html[data-theme="dark"] {
+    --global-bg-color: transparent;
+    --global-text-color: #ece7dc;
+    --global-border-color: rgba(212, 175, 90, 0.35);
+    --global-link-color: #e2bd6b;
+    --global-link-color-hover: #f5d993;
+    --global-link-color-visited: #e2bd6b;
+    --global-masthead-link-color: #ece7dc;
+    --global-masthead-link-color-hover: #e2bd6b;
+  }
+  html, body { background: #050505; }
+  #fluid-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    background: radial-gradient(ellipse at 30% 30%, #6b5320 0%, #0a0a0a 55%), #050505;
+  }
+  .masthead {
+    background: rgba(5, 5, 5, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(212, 175, 90, 0.25);
+  }
+  .masthead a, .greedy-nav a { color: #ece7dc; }
+  .sidebar {
+    background: #0b0b0b;
+    border: 1px solid rgba(212, 175, 90, 0.35);
+    border-radius: 10px;
+    padding: 1.2em 1em;
+    color: #ece7dc;
+  }
+  .sidebar .author__name, .sidebar .author__bio, .sidebar a, .sidebar li { color: #ece7dc; }
+  .archive {
+    background: rgba(8, 8, 8, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 90, 0.25);
+    border-radius: 10px;
+    padding: 1.2em 1.6em 1.6em;
+    color: #ece7dc;
+  }
+  .archive .page__title, .archive h2 { color: #e2bd6b; }
+  .page__footer { background: rgba(5, 5, 5, 0.85); }
+</style>
+
+<p>This page is a <strong>test</strong> of the moving black-and-gold background. It isn't linked from the menu.</p>
+
+<h2>What you're seeing</h2>
+<ul>
+  <li><strong>Behind the page:</strong> black and gold "paint" that slowly swirls and morphs.</li>
+  <li><strong>Sidebar:</strong> a solid matte-black panel with a thin gold edge, so it has its own look.</li>
+  <li><strong>This text area:</strong> a dark, slightly see-through card, so the words stay easy to read over the moving paint.</li>
+  <li><strong>Headings and links</strong> switch to gold; NYU purple is hard to read on black.</li>
+</ul>
+
+<h2>Sample text</h2>
+<p>Architected materials &amp; mechanical metamaterials · interpenetrating phase composites · TPMS topologies · high strain-rate impact mechanics · dynamic mechanical analysis · additive manufacturing.</p>
+<p><a href="{{ base_path }}/">A sample link back to the home page</a></p>
+
+<script>
+(function () {
+  var canvas = document.getElementById('fluid-bg');
+  document.body.insertBefore(canvas, document.body.firstChild); /* sit behind the whole page, not inside the text card */
+  var gl = canvas.getContext('webgl', { antialias: false, premultipliedAlpha: false });
+  if (!gl) return; /* no WebGL: the CSS gradient fallback stays */
+
+  var vs = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+  var fs = [
+    'precision mediump float;',
+    'uniform vec2 res; uniform float t;',
+    'float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
+    'float n(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);',
+    '  return mix(mix(h(i),h(i+vec2(1,0)),f.x), mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x), f.y); }',
+    'float fbm(vec2 p){ float v=0.0, a=0.5; mat2 m=mat2(1.6,1.2,-1.2,1.6);',
+    '  for(int i=0;i<5;i++){ v+=a*n(p); p=m*p; a*=0.5; } return v; }',
+    'void main(){',
+    '  vec2 uv = gl_FragCoord.xy / res.y * 1.6;',
+    '  float s = t * 0.035;',
+    '  vec2 q = vec2(fbm(uv + s), fbm(uv + vec2(5.2, 1.3) - s));',
+    '  vec2 r = vec2(fbm(uv + 3.5*q + vec2(1.7, 9.2) + 0.6*s), fbm(uv + 3.5*q + vec2(8.3, 2.8) - 0.5*s));',
+    '  float f = fbm(uv + 3.5*r);',
+    '  vec3 black  = vec3(0.012, 0.010, 0.008);',
+    '  vec3 bronze = vec3(0.24, 0.16, 0.05);',
+    '  vec3 gold   = vec3(0.80, 0.62, 0.24);',
+    '  vec3 shine  = vec3(1.00, 0.88, 0.58);',
+    '  float k = smoothstep(0.30, 0.78, f);',
+    '  vec3 c = mix(black, bronze, smoothstep(0.0, 0.45, k));',
+    '  c = mix(c, gold, smoothstep(0.45, 0.80, k));',
+    '  c = mix(c, shine, smoothstep(0.86, 1.0, k) * 0.7);',
+    '  c *= 0.55 + 0.45 * smoothstep(0.0, 1.0, length(r));',
+    '  gl_FragColor = vec4(c, 1.0);',
+    '}'
+  ].join('\n');
+
+  function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+  gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(prog, 'p');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  var uRes = gl.getUniformLocation(prog, 'res');
+  var uT = gl.getUniformLocation(prog, 't');
+
+  /* Draw at a third of screen resolution: soft, paint-like, and light on phones */
+  var SCALE = 3;
+  function resize() {
+    canvas.width = Math.max(1, Math.round(window.innerWidth / SCALE));
+    canvas.height = Math.max(1, Math.round(window.innerHeight / SCALE));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var start = performance.now();
+  var offset = Math.random() * 100;
+  function frame(now) {
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform1f(uT, offset + (now - start) / 1000);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if (!still && !document.hidden) requestAnimationFrame(frame);
+  }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && !still) requestAnimationFrame(frame); });
+  requestAnimationFrame(frame);
+})();
+</script>
