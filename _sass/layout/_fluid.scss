@@ -59,6 +59,7 @@ body.fluid-page {
     padding: 1.2em 1.6em 1.6em;
     color: #2b2233;
   }
+  .page { display: flow-root; }  /* wrap the floated content so the card covers all of it */
   .archive .page__title, .page .page__title, .archive h2 { color: #57068c; }
 
   .page__footer {
