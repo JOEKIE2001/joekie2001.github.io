@@ -55,10 +55,6 @@
   title: "Parallel World"
   location: "Burj Khalifa, Dubai"
 
-- file: dubai-mall-stairs.jpg
-  title: "Gathering Point"
-  location: "Dubai Mall, Dubai"
-
 - file: twin-towers-creek.jpg
   title: "Sail to Twin"
   location: "Deira Twin Towers, Dubai"
@@ -86,10 +82,6 @@
 - file: galleria-christmas.jpg
   title: "Holiday Spirit"
   location: "The Galleria Mall, AD"
-
-- file: reem-island-skyline.jpg
-  title: "Spilled Paint"
-  location: "Reem Island, AD"
 
 - file: zayed-museum-skylight.jpg
   title: "Arrakis"
@@ -152,7 +144,7 @@
   location: "Griffith Observatory, CA"
 
 - file: griffith-dusk-trail.jpg
-  title: "Dusk Trail"
+  title: "Solo Traveler"
   location: "Griffith Observatory, CA"
 
 - file: sunset-cliffs-golden-hour.jpg
@@ -178,3 +170,23 @@
 - file: balboa-park-requiem.jpg
   title: "American Requiem"
   location: "Spreckels Organ Pavilion, Balboa Park, CA"
+
+- file: san-diego-zoo-peek.jpg
+  title: "Peek"
+  location: "San Diego Zoo, CA"
+
+- file: san-diego-zoo-show-biz.jpg
+  title: "Show Biz"
+  location: "San Diego Zoo, CA"
+
+- file: torrey-pines-on-the-road.jpg
+  title: "On the Road"
+  location: "Torrey Pines State Beach, CA"
+
+- file: dimaniyat-break-free.jpg
+  title: "Break Free"
+  location: "Dimaniyat Islands, Muscat"
+
+- file: dimaniyat-is-this-the-end.jpg
+  title: "is this the end?"
+  location: "Dimaniyat Islands, Muscat"
