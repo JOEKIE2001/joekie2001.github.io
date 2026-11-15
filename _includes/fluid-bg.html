@@ -1,4 +1,4 @@
-<!-- Moving gold-and-beige "paint" background (WebGL). Turn off on a page with  fluid_bg: false  in its front matter. -->
+<!-- Moving silver-and-beige "paint" background (WebGL). Turn off on a page with  fluid_bg: false  in its front matter. -->
 <canvas id="fluid-bg" aria-hidden="true"></canvas>
 <script>
 (function () {
@@ -21,14 +21,14 @@
     '  vec2 q = vec2(fbm(uv + s), fbm(uv + vec2(5.2, 1.3) - s));',
     '  vec2 r = vec2(fbm(uv + 3.5*q + vec2(1.7, 9.2) + 0.6*s), fbm(uv + 3.5*q + vec2(8.3, 2.8) - 0.5*s));',
     '  float f = fbm(uv + 3.5*r);',
-    '  vec3 deep   = vec3(0.45, 0.32, 0.12);',
-    '  vec3 gold   = vec3(0.72, 0.55, 0.24);',
-    '  vec3 champ  = vec3(0.86, 0.75, 0.52);',
-    '  vec3 beige  = vec3(0.93, 0.89, 0.82);',
-    '  vec3 cream  = vec3(0.96, 0.94, 0.89);',
+    '  vec3 deep   = vec3(0.36, 0.37, 0.40);',
+    '  vec3 silver = vec3(0.60, 0.62, 0.65);',
+    '  vec3 pale   = vec3(0.78, 0.79, 0.81);',
+    '  vec3 beige  = vec3(0.93, 0.91, 0.87);',
+    '  vec3 cream  = vec3(0.96, 0.95, 0.93);',
     '  float k = smoothstep(0.22, 0.62, f);',
-    '  vec3 c = mix(deep, gold, smoothstep(0.0, 0.18, k));',
-    '  c = mix(c, champ, smoothstep(0.16, 0.36, k));',
+    '  vec3 c = mix(deep, silver, smoothstep(0.0, 0.18, k));',
+    '  c = mix(c, pale, smoothstep(0.16, 0.36, k));',
     '  c = mix(c, beige, smoothstep(0.30, 0.55, k));',
     '  c = mix(c, cream, smoothstep(0.75, 1.0, k) * 0.6);',
     '  c = mix(c * 0.92, c, smoothstep(0.0, 1.0, length(r)));',
