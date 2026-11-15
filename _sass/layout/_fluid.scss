@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Moving silver-and-beige background (every page except those with fluid_bg: false)
-   The paint itself is drawn by _includes/fluid-bg.html.
+   Still silver-and-beige liquid-metal background (every page except those with fluid_bg: false)
+   The image is placed by _includes/fluid-bg.html.
    ========================================================================== */
 
-html:has(> body.fluid-page) { background: #efe6d6; }
+html:has(> body.fluid-page) { background: #e6e4e0; }
 
 body.fluid-page {
   /* fixed light palette on these pages, whatever the light/dark toggle says */
@@ -22,12 +22,12 @@ body.fluid-page {
   #fluid-bg {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
     z-index: -1;
-    display: block;
-    /* shown as-is if WebGL is unavailable */
-    background: radial-gradient(ellipse at 30% 30%, #a9acb2 0%, #efe6d6 60%), #efe6d6;
+    background: #e6e4e0 url("../../images/background/metal-wide.webp") center / cover no-repeat;
+
+    @media (orientation: portrait) {
+      background-image: url("../../images/background/metal-tall.webp");
+    }
   }
 
   .masthead {
@@ -79,3 +79,13 @@ body.fluid-page {
   bottom: auto;
 }
 body { margin-bottom: 0 !important; }
+
+/* Keep the sidebar narrower than its column so its panel never touches the text card.
+   (The theme sizes the fixed sidebar from the window width but the text column from
+   the page width, so on most laptops they overlapped.) */
+@media (min-width: 925px) {
+  body.fluid-page .sidebar { width: 134px; max-width: 134px; }
+}
+@media (min-width: 1280px) {
+  body.fluid-page .sidebar { width: 195px; max-width: 195px; }
+}
