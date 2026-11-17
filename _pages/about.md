@@ -1,6 +1,7 @@
 ---
 permalink: /
-title: "Hi, I'm Monty 👋"
+title: "Hi, I'm Monty"
+title_emoji: "👋"
 author_profile: true
 redirect_from:
   - /about/

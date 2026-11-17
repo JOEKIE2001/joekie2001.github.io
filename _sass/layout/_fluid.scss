@@ -1,70 +1,98 @@
 /* ==========================================================================
-   Still silver-and-beige liquid-metal background (every page except those with fluid_bg: false)
+   Still liquid-chrome background (every page except those with fluid_bg: false)
    The image is placed by _includes/fluid-bg.html.
    ========================================================================== */
 
-html:has(> body.fluid-page) { background: #e6e4e0; }
+/* brushed-silver gradient used for headings and degree names */
+$chrome-text: linear-gradient(180deg, #1f2329 0%, #555c67 40%, #9aa1ab 52%, #3d434d 64%, #16191e 100%);
+$steel: #4a515c;
+
+html:has(> body.fluid-page) { background: #cfd3d9; }
 
 body.fluid-page {
   /* fixed light palette on these pages, whatever the light/dark toggle says */
   --global-bg-color: transparent;
-  --global-text-color: #2b2233;
-  --global-border-color: rgba(130, 134, 142, 0.35);
-  --global-link-color: #57068c;
-  --global-link-color-hover: #7b2fb5;
-  --global-link-color-visited: #57068c;
-  --global-masthead-link-color: #2b2233;
-  --global-masthead-link-color-hover: #57068c;
+  --global-text-color: #22252b;
+  --global-border-color: rgba(120, 126, 136, 0.35);
+  --global-link-color: #3f4652;
+  --global-link-color-hover: #111418;
+  --global-link-color-visited: #3f4652;
+  --global-masthead-link-color: #22252b;
+  --global-masthead-link-color-hover: #000;
   --global-footer-bg-color: transparent;
   background: transparent;
-  color: #2b2233;
+  color: #22252b;
 
   #fluid-bg {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: #e6e4e0 url("../../images/background/metal-wide.webp") center / cover no-repeat;
+    background: #cfd3d9 url("../../images/background/chrome-wide.webp") center / cover no-repeat;
 
     @media (orientation: portrait) {
-      background-image: url("../../images/background/metal-tall.webp");
+      background-image: url("../../images/background/chrome-tall.webp");
     }
   }
 
   .masthead {
-    background: rgba(246, 240, 228, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(130, 134, 142, 0.35);
+    background: rgba(246, 247, 249, 0.82);
+    backdrop-filter: blur(8px) saturate(1.2);
+    -webkit-backdrop-filter: blur(8px) saturate(1.2);
+    border-bottom: 1px solid rgba(120, 126, 136, 0.35);
   }
-  .masthead a, .greedy-nav a { color: #2b2233; }
-  .greedy-nav .hidden-links { background: #f6f0e4; }
+  .masthead a, .greedy-nav a { color: #22252b; }
+  .greedy-nav .hidden-links { background: #f4f5f7; }
 
-  /* sidebar: solid cream panel */
+  /* sidebar: solid silver-white panel */
   .sidebar {
-    background: #f6f0e4;
-    border: 1px solid rgba(130, 134, 142, 0.45);
+    background: linear-gradient(160deg, #fbfbfc 0%, #eceef1 100%);
+    border: 1px solid rgba(120, 126, 136, 0.45);
     border-radius: 10px;
     padding: 1.2em 1em;
-    color: #2b2233;
+    color: #22252b;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 8px 24px rgba(20, 24, 30, 0.12);
   }
-  .sidebar .author__name, .sidebar .author__bio, .sidebar a, .sidebar li { color: #2b2233; }
+  .sidebar .author__name, .sidebar .author__bio, .sidebar a, .sidebar li { color: #22252b; }
 
-  /* page content: light see-through card */
+  /* page content: frosted glass card */
   .archive, .page {
-    background: rgba(250, 246, 238, 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(130, 134, 142, 0.35);
+    background: rgba(248, 249, 251, 0.84);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border: 1px solid rgba(120, 126, 136, 0.35);
     border-radius: 10px;
     padding: 1.2em 1.6em 1.6em;
-    color: #2b2233;
+    color: #22252b;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 10px 30px rgba(20, 24, 30, 0.14);
   }
   .page { display: flow-root; }  /* wrap the floated content so the card covers all of it */
-  .archive .page__title, .page .page__title, .archive h2 { color: #57068c; }
+
+  /* silver headings (replace NYU purple) */
+  .page__title,
+  .archive h2, .archive h3,
+  .page h1, .page h2, .page h3,
+  .edu-entry__body > p > strong:first-child {
+    color: $steel;   /* fallback */
+    background: $chrome-text;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page__title { letter-spacing: 0.01em; }
+  .title-emoji { background: none; -webkit-text-fill-color: initial; }
+  /* paper titles stay plain dark links */
+  .archive h2.archive__item-title,
+  .archive h2.archive__item-title a {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: #22252b;
+  }
+  .skills-list__icon { color: $steel; }
+  .archive hr, .page hr { border-color: rgba(120, 126, 136, 0.35); }
 
   .page__footer {
-    background: rgba(246, 240, 228, 0.88);
-    color: #2b2233;
+    background: rgba(240, 242, 245, 0.88);
+    color: #22252b;
   }
 
   @media (max-width: 500px) {
