@@ -14,4 +14,9 @@ covers:
     file: kiss-me.m4a
     cover: kiss-me.jpg
 
+  - title: "stay"
+    subtitle: "Original by Ariana Grande"
+    file: stay.m4a
+    cover: stay.jpg
+
 originals: []

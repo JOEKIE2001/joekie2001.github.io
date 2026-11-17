@@ -20,34 +20,32 @@ vec2 warp(vec2 uv){
   vec2 r = vec2(fbm(uv + 2.6*q + vec2(1.7,9.2), 4), fbm(uv + 2.6*q + vec2(8.3,2.8), 4));
   return r;
 }
-float height(vec2 uv){ vec2 r = warp(uv); return fbm(uv + 2.4*r, 4); }
+float height(vec2 uv){ vec2 r = warp(uv); return fbm(uv + 2.4*r, 3); }
 void main(){
-  vec2 uv = gl_FragCoord.xy / res.y * 1.05 + vec2(ox, 0.);
+  vec2 uv = gl_FragCoord.xy / res.y * 0.85 + vec2(ox, 0.);
   float e = 0.6 / res.y;
   float f  = height(uv);
   float fx = height(uv + vec2(e,0.));
   float fy = height(uv + vec2(0.,e));
-  vec3 N = normalize(vec3(-(fx-f)/e*0.05, -(fy-f)/e*0.05, 1.0));
+  vec3 N = normalize(vec3(-(fx-f)/e*0.11, -(fy-f)/e*0.11, 1.0));
   vec3 V = vec3(0.,0.,1.);
   vec3 R = reflect(-V, N);
-  // studio environment: soft gradient sky plus two long light strips
-  float sky = smoothstep(-0.9, 0.9, R.y*0.9 + R.x*0.25);
-  vec3 env = mix(vec3(0.16,0.17,0.20), vec3(0.86,0.88,0.92), sky);
-  float strip1 = smoothstep(0.10, 0.0, abs(R.y*0.8 - R.x*0.6 - 0.35));
-  float strip2 = smoothstep(0.06, 0.0, abs(R.y*0.5 + R.x*0.85 + 0.25));
-  env += vec3(1.0)*strip1*0.9 + vec3(1.0,0.99,0.97)*strip2*0.6;
-  float fres = pow(1.0 - clamp(N.z,0.,1.), 2.0);
+  // banded chrome environment: alternating bright studio light and deep graphite
+  float a = R.y*3.2 + R.x*1.3 + R.z*0.6;
+  float bands = 0.5 + 0.5*sin(a*2.2);
+  bands = smoothstep(0.15, 0.85, bands);
+  vec3 dark = vec3(0.10,0.11,0.13), mid = vec3(0.62,0.65,0.70), hi = vec3(0.97,0.98,1.0);
+  vec3 env = mix(dark, mid, smoothstep(0.0, 0.55, bands));
+  env = mix(env, hi, smoothstep(0.7, 1.0, bands));
+  // flat areas reflect a soft bright sky so the page stays light overall
+  float flatness = smoothstep(0.80, 1.0, N.z);
+  env = mix(env, vec3(0.80,0.82,0.86), flatness*0.30);
+  // gentle large-scale shading so flat metal still has depth
+  env *= 0.90 + 0.14*smoothstep(0.2, 0.8, f);
+  float fres = pow(1.0 - clamp(N.z,0.,1.), 2.5);
   vec3 L = normalize(vec3(-0.4, 0.65, 0.65));
-  float dif = clamp(dot(N,L),0.,1.);
-  float spec = pow(clamp(dot(reflect(-L,N),V),0.,1.), 120.);
-  // material mask: beige-dominant with silver ribbons following the flow
-  vec2 r = warp(uv*0.8 + 3.1);
-  float m = smoothstep(0.47, 0.53, fbm(uv*0.7 + 1.8*r + seed*0.37, 4));
-  vec3 chrome = mix(env, vec3(0.72,0.74,0.78), 0.18) + spec*1.2 + fres*0.25;
-  vec3 pearl  = vec3(0.95,0.92,0.86)*(0.88 + 0.14*dif) + vec3(1.0,0.98,0.95)*pow(clamp(dot(reflect(-L,N),V),0.,1.),18.)*0.25 + spec*0.4;
-  // thin bright seam where the two materials meet
-  float seam = smoothstep(0.03, 0.0, abs(fbm(uv*0.7 + 1.8*r + seed*0.37, 4) - 0.5));
-  vec3 col = mix(chrome, pearl, m) + seam*vec3(1.0)*0.18;
+  float spec = pow(clamp(dot(reflect(-L,N),V),0.,1.), 200.);
+  vec3 col = env + spec*1.5 + fres*vec3(0.8,0.85,0.95)*0.25;
   gl_FragColor = vec4(clamp(col,0.,1.), 1.0);
 }`;
 function sh(t,s){ const x=gl.createShader(t); gl.shaderSource(x,s); gl.compileShader(x); if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)) throw gl.getShaderInfoLog(x); return x; }
