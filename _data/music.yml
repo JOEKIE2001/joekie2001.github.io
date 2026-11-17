@@ -19,4 +19,9 @@ covers:
     file: stay.m4a
     cover: stay.jpg
 
+  - title: "stay (a cappella)"
+    subtitle: "Original by Ariana Grande"
+    file: stay-a-cappella.m4a
+    cover: stay-a-cappella.jpg
+
 originals: []
