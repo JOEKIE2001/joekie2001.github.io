@@ -74,7 +74,6 @@ Technical skills
 <li><i class="fa-solid fa-laptop-code fa-fw skills-list__icon" aria-hidden="true"></i><strong>Computational &amp; modelling:</strong> ANSYS Mechanical (APDL &amp; Workbench), MATLAB, Python, Bash/Zsh; familiar with Abaqus, COMSOL, C++</li>
 <li><i class="fa-solid fa-pen-ruler fa-fw skills-list__icon" aria-hidden="true"></i><strong>Design &amp; fabrication:</strong> Shapr3D, AutoCAD, Materialise Magics, ANSYS SpaceClaim, Top6Meta; familiar with SolidWorks</li>
 <li><i class="fa-solid fa-chart-line fa-fw skills-list__icon" aria-hidden="true"></i><strong>Data analysis &amp; visualisation:</strong> MATLAB, Python, ImageJ, Blender</li>
-<li><i class="fa-solid fa-language fa-fw skills-list__icon" aria-hidden="true"></i><strong>Languages:</strong> English (fluent), Mandarin Chinese (native)</li>
 </ul>
 
 Service and leadership
