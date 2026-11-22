@@ -24,4 +24,9 @@ covers:
     file: stay-a-cappella.m4a
     cover: stay-a-cappella.jpg
 
+  - title: "past life"
+    subtitle: "Original by Ariana Grande"
+    file: past-life.m4a
+    cover: past-life.jpg
+
 originals: []
