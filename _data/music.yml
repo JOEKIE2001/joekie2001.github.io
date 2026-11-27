@@ -5,6 +5,7 @@
 #   subtitle: "Original by Artist"  (second line, smaller)
 #   file: my-song.m4a
 #   cover: my-song.jpg
+#   fav: true                       (optional: silver star after the title)
 #
 # Songs are shown in the order listed here (top = first).
 
@@ -18,6 +19,7 @@ covers:
     subtitle: "Original by Ariana Grande"
     file: stay.m4a
     cover: stay.jpg
+    fav: true
 
   - title: "stay (a cappella)"
     subtitle: "Original by Ariana Grande"

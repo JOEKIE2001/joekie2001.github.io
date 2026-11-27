@@ -8,7 +8,7 @@
     <div class="music-tile__time"><span class="music-tile__current">0:00</span><span class="music-tile__duration"></span></div>
   </div>
   <figcaption>
-    <span class="music-tile__title">{{ include.song.title }}</span>
+    <span class="music-tile__title">{{ include.song.title }}{% if include.song.fav %} {% include silver-star.html id=include.song.file %}<span class="sr-only">(favourite)</span>{% endif %}</span>
     {% if include.song.subtitle %}<span class="music-tile__subtitle">{{ include.song.subtitle }}</span>{% endif %}
   </figcaption>
   <audio preload="metadata" src="{{ base_path }}/files/music/{{ include.song.file }}"></audio>
